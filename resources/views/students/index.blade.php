@@ -1,49 +1,43 @@
-<!-- resources/views/students/index.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Student Records</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-    </style>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ asset('css/student-styles.css') }}">
 </head>
 <body>
-<h1>First 50 Students</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Naam</th>
-        <th>Herkomst</th>
-        <th>Inschrijving</th>
-        <th>Category</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach ($students as $student)
-    <tr>
-        <!-- Naam: Voornaam + Naam -->
-        <td>{{ $student->Voornaam }} {{ $student->Naam }}</td>
+<div class="container">
+    <h1>Zoek hier naar studenten</h1>
 
-        <!-- Herkomst: Herkomst - modern -->
-        <td>{{ $student->Herkomst_modern }}</td>
+    <form method="GET" action="{{ route('students.index') }}" class="search-form">
+        <input type="text" name="voornaam" placeholder="Voornaam" value="{{ request('voornaam') }}">
+        <input type="text" name="naam" placeholder="Naam" value="{{ request('naam') }}">
+        <input type="text" name="herkomst" placeholder="Herkomst" value="{{ request('herkomst') }}">
 
-        <!-- Inschrijving: Datum inschrijving -->
-        <td>{{ $student->Datum_inschrijving }}</td>
+        <!-- Single Date for Inschrijving (Registration Date) -->
+        <input type="date" name="inschrijving" placeholder="Inschrijving" value="{{ request('inschrijving') }}">
 
-        <!-- Category: Cat inschrijving -->
-        <td>{{ $student->Cat_inschrijving }}</td>
-    </tr>
-    @endforeach
-    </tbody>
-</table>
+        <button type="submit">Zoeken</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Herkomst</th>
+            <th>Inschrijving</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($students as $student)
+        <tr>
+            <td data-label="Naam">{{ $student->Voornaam }} {{ $student->Naam }}</td>
+            <td data-label="Herkomst">{{ $student->getModernHerkomstAttribute() }}</td>
+            <td data-label="Inschrijving">{{ $student->getInschrijvingDateAttribute() }}</td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
-
