@@ -34,11 +34,17 @@
             font-size: 2rem;
             font-weight: 600;
         }
+        .custom-container {
+            width: 96%;
+            max-width: 55em;
+            margin: auto;
+            box-sizing: border-box;
+        }
     </style>
     @endif
 </head>
 <body>
-<div class="container">
+<div class="custom-container">
     @include('students.index', ['students' => $students])
 </div>
 </body>

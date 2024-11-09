@@ -22,11 +22,11 @@
 
     <table>
         <thead>
-        <tr>
-            <th>Naam</th>
-            <th>Herkomst</th>
-            <th>Inschrijving</th>
-        </tr>
+            <tr>
+                <th>Naam</th>
+                <th>Herkomst</th>
+                <th>Inschrijving</th>
+            </tr>
         </thead>
         <tbody>
         @foreach ($students as $student)

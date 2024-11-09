@@ -2,13 +2,10 @@
 
 /* Responsive container for student records */
 .container {
-    width: 90%;
-    max-width: 900px;
     margin: auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
     box-sizing: border-box;
 }
 h1 {
@@ -52,6 +49,7 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
     word-wrap: break-word;
+    max-width: 32%;
 }
 th {
     background-color: #edf2f7;
@@ -62,48 +60,48 @@ tr:hover {
     background-color: #f7fafc;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-    table {
-        font-size: 0.9rem;
-    }
-    th, td {
-        padding: 10px;
-    }
-}
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.25rem;
-    }
-    table, th, td {
-        display: block;
-        width: 100%;
-    }
-    tr {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-    }
-    th {
-        background-color: transparent;
-        color: #2d3748;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    td::before {
-        content: attr(data-label);
-        font-weight: 500;
-        color: #4a5568;
-        margin-right: 10px;
-        display: inline-block;
-        min-width: 100px;
-    }
-}
+/*!* Responsive adjustments *!*/
+/*@media (max-width: 768px) {*/
+/*    .container {*/
+/*        padding: 1rem;*/
+/*    }*/
+/*    h1 {*/
+/*        font-size: 1.5rem;*/
+/*    }*/
+/*    table {*/
+/*        font-size: 0.9rem;*/
+/*    }*/
+/*    th, td {*/
+/*        padding: 10px;*/
+/*    }*/
+/*}*/
+/*@media (max-width: 600px) {*/
+/*    h1 {*/
+/*        font-size: 1.25rem;*/
+/*    }*/
+/*    table, th, td {*/
+/*        display: block;*/
+/*        width: 100%;*/
+/*    }*/
+/*    tr {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        margin-bottom: 1rem;*/
+/*        border: 1px solid #e2e8f0;*/
+/*        border-radius: 8px;*/
+/*    }*/
+/*    th {*/
+/*        background-color: transparent;*/
+/*        color: #2d3748;*/
+/*        font-weight: bold;*/
+/*        text-transform: uppercase;*/
+/*    }*/
+/*    td::before {*/
+/*        content: attr(data-label);*/
+/*        font-weight: 500;*/
+/*        color: #4a5568;*/
+/*        margin-right: 10px;*/
+/*        display: inline-block;*/
+/*        min-width: 100px;*/
+/*    }*/
+/*}*/
