@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Student Records</title>
-    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="{{ asset('css/student-styles.css') }}">
 </head>
 <body>
@@ -13,30 +12,92 @@
         <input type="text" name="voornaam" placeholder="Voornaam" value="{{ request('voornaam') }}">
         <input type="text" name="naam" placeholder="Naam" value="{{ request('naam') }}">
         <input type="text" name="herkomst" placeholder="Herkomst" value="{{ request('herkomst') }}">
-
-        <!-- Single Date for Inschrijving (Registration Date) -->
         <input type="date" name="inschrijving" placeholder="Inschrijving" value="{{ request('inschrijving') }}">
+
+        <!-- Dropdown for Studiegebied -->
+        <select name="studiegebied">
+            <option value="">Studiegebied</option>
+            <option value="Philosophia" {{ request('studiegebied') == 'Philosophia' ? 'selected' : '' }}>Philosophia</option>
+            <option value="Humaniora" {{ request('studiegebied') == 'Humaniora' ? 'selected' : '' }}>Humaniora</option>
+            <option value="Ius utrumque" {{ request('studiegebied') == 'Ius utrumque' ? 'selected' : '' }}>Ius utrumque</option>
+            <option value="Medicina" {{ request('studiegebied') == 'Medicina' ? 'selected' : '' }}>Medicina</option>
+            <option value="Philosophia - Logica" {{ request('studiegebied') == 'Philosophia - Logica' ? 'selected' : '' }}>Philosophia - Logica</option>
+            <option value="Physica" {{ request('studiegebied') == 'Physica' ? 'selected' : '' }}>Physica</option>
+            <option value="Humaniora - Rhetorica" {{ request('studiegebied') == 'Humaniora - Rhetorica' ? 'selected' : '' }}>Humaniora - Rhetorica</option>
+            <option value="Theologia" {{ request('studiegebied') == 'Theologia' ? 'selected' : '' }}>Theologia</option>
+            <option value="Ius" {{ request('studiegebied') == 'Ius' ? 'selected' : '' }}>Ius</option>
+            <option value="Humaniora - Grammatica" {{ request('studiegebied') == 'Humaniora - Grammatica' ? 'selected' : '' }}>Humaniora - Grammatica</option>
+            <option value="Ius Canonicus" {{ request('studiegebied') == 'Ius Canonicus' ? 'selected' : '' }}>Ius Canonicus</option>
+            <option value="Humaniora - Poesis" {{ request('studiegebied') == 'Humaniora - Poesis' ? 'selected' : '' }}>Humaniora - Poesis</option>
+            <option value="Humaniora - Syntaxis" {{ request('studiegebied') == 'Humaniora - Syntaxis' ? 'selected' : '' }}>Humaniora - Syntaxis</option>
+            <option value="Artes" {{ request('studiegebied') == 'Artes' ? 'selected' : '' }}>Artes</option>
+            <option value="Ius Civilis" {{ request('studiegebied') == 'Ius Civilis' ? 'selected' : '' }}>Ius Civilis</option>
+            <option value="Ius Canonicus - Decreta" {{ request('studiegebied') == 'Ius Canonicus - Decreta' ? 'selected' : '' }}>Ius Canonicus - Decreta</option>
+            <option value="Artes; Theologia" {{ request('studiegebied') == 'Artes; Theologia' ? 'selected' : '' }}>Artes; Theologia</option>
+            <option value="Artes; Medicina" {{ request('studiegebied') == 'Artes; Medicina' ? 'selected' : '' }}>Artes; Medicina</option>
+        </select>
+
+        <!-- Dropdown for Cat inschrijving -->
+        <select name="cat_inschrijving">
+            <option value="">Category inschrijving</option>
+            <option value="nobilis" {{ request('cat_inschrijving') == 'nobilis' ? 'selected' : '' }}>nobilis</option>
+            <option value="pauper" {{ request('cat_inschrijving') == 'pauper' ? 'selected' : '' }}>pauper</option>
+            <option value="beneficiatus" {{ request('cat_inschrijving') == 'beneficiatus' ? 'selected' : '' }}>beneficiatus</option>
+            <option value="dives" {{ request('cat_inschrijving') == 'dives' ? 'selected' : '' }}>dives</option>
+            <option value="nobilis; dives" {{ request('cat_inschrijving') == 'nobilis; dives' ? 'selected' : '' }}>nobilis; dives</option>
+        </select>
+
+        <!-- Dropdown for Pedagogie -->
+        <select name="pedagogie">
+            <option value="">Pedagogie</option>
+            <option value="liliensis; castrensis" {{ request('pedagogie') == 'liliensis; castrensis' ? 'selected' : '' }}>liliensis; castrensis</option>
+            <option value="porcensis; falconensis" {{ request('pedagogie') == 'porcensis; falconensis' ? 'selected' : '' }}>porcensis; falconensis</option>
+            <option value="castrensis" {{ request('pedagogie') == 'castrensis' ? 'selected' : '' }}>castrensis</option>
+            <option value="liliensis" {{ request('pedagogie') == 'liliensis' ? 'selected' : '' }}>liliensis</option>
+            <option value="porcensis" {{ request('pedagogie') == 'porcensis' ? 'selected' : '' }}>porcensis</option>
+            <option value="falconensis" {{ request('pedagogie') == 'falconensis' ? 'selected' : '' }}>falconensis</option>
+        </select>
+
+        <!-- Dropdown for School Selectie -->
+        <select name="school_selectie">
+            <option value="">School Selectie</option>
+            <option value="Humaniora - Collegium Sanctissimae Trinitatis" {{ request('school_selectie') == 'Humaniora - Collegium Sanctissimae Trinitatis' ? 'selected' : '' }}>Humaniora - Collegium Sanctissimae Trinitatis</option>
+            <option value="Humaniora - Collegium Augustinianorum" {{ request('school_selectie') == 'Humaniora - Collegium Augustinianorum' ? 'selected' : '' }}>Humaniora - Collegium Augustinianorum</option>
+            <option value="Humaniora - Schola Sancti Petri" {{ request('school_selectie') == 'Humaniora - Schola Sancti Petri' ? 'selected' : '' }}>Humaniora - Schola Sancti Petri</option>
+            <option value="Humaniora - Collegium Gandense" {{ request('school_selectie') == 'Humaniora - Collegium Gandense' ? 'selected' : '' }}>Humaniora - Collegium Gandense</option>
+            <option value="Humaniora - Collegium Vaulxianum" {{ request('school_selectie') == 'Humaniora - Collegium Vaulxianum' ? 'selected' : '' }}>Humaniora - Collegium Vaulxianum</option>
+            <option value="Humaniora - Collegium Standonck" {{ request('school_selectie') == 'Humaniora - Collegium Standonck' ? 'selected' : '' }}>Humaniora - Collegium Standonck</option>
+        </select>
 
         <button type="submit">Zoeken</button>
     </form>
 
     <table>
         <thead>
-            <tr>
-                <th>Naam</th>
-                <th>Herkomst</th>
-                <th>Inschrijving</th>
-            </tr>
+        <tr>
+            <th>Naam</th>
+            <th>Herkomst</th>
+            <th>Inschrijving</th>
+            <th>Studiegebied</th>
+            <th>Cat inschrijving</th>
+            <th>Pedagogie</th>
+            <th>School Selectie</th>
+        </tr>
         </thead>
         <tbody>
         @foreach ($students as $student)
-        <tr>
-            <td data-label="Naam">{{ $student->Voornaam }} {{ $student->Naam }}</td>
-            <td data-label="Herkomst">{{ $student->getModernHerkomstAttribute() }}</td>
-            <td data-label="Inschrijving">{{ $student->getInschrijvingDateAttribute() }}</td>
-        </tr>
+            <tr>
+                <td data-label="Naam">{{ $student->Voornaam }} {{ $student->Naam }}</td>
+                <td data-label="Herkomst">{{ $student->getModernHerkomstAttribute() }}</td>
+                <td data-label="Inschrijving">{{ $student->getInschrijvingDateAttribute() }}</td>
+                <td data-label="Studiegebied">{{ $student->getStudiegebiedAttribute() }}</td> <!-- Using accessor -->
+                <td data-label="Cat inschrijving">{{ $student->getCategoryInschrijvingAttribute() }}</td> <!-- Using accessor -->
+                <td data-label="Pedagogie">{{ $student->getPedagogieAttribute() }}</td> <!-- Using accessor -->
+                <td data-label="School Selectie">{{ $student->getSchoolSelectieAttribute() }}</td> <!-- Using accessor -->
+            </tr>
         @endforeach
         </tbody>
+
     </table>
 </div>
 </body>

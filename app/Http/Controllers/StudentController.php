@@ -29,13 +29,31 @@ class StudentController extends Controller
             $query->where('Herkomst - modern', 'like', '%' . $request->input('herkomst') . '%');
         }
 
-        // Search by Date of Registration (Inschrijving)
+        // Search by Date of Registration (Datum inschrijving)
         if ($request->has('inschrijving') && $request->input('inschrijving') != '') {
-            // Convert the date format from YYYY-MM-DD to DD/MM/YYYY
             $inschrijvingDate = \Carbon\Carbon::createFromFormat('Y-m-d', $request->input('inschrijving'))->format('d/m/Y');
-
-            // Apply the filter using the converted date format
             $query->where('Datum inschrijving', '=', $inschrijvingDate);
+        }
+
+        // Search by Studiegebied (Study Field)
+        if ($request->has('studiegebied') && $request->input('studiegebied') != '') {
+            $query->where('Studiegebied', '=', $request->input('studiegebied'));
+        }
+
+        // Search by Cat inschrijving (Category of Registration)
+        if ($request->has('cat_inschrijving') && $request->input('cat_inschrijving') != '') {
+            // Use the correct column name 'Cat inschrijving'
+            $query->where('Cat inschrijving', '=', $request->input('cat_inschrijving'));
+        }
+
+        // Search by Pedagogie
+        if ($request->has('pedagogie') && $request->input('pedagogie') != '') {
+            $query->where('Pedagogie', '=', $request->input('pedagogie'));
+        }
+
+        // Search by School (School Selectie)
+        if ($request->has('school_selectie') && $request->input('school_selectie') != '') {
+            $query->where('School (humaniora)', '=', $request->input('school_selectie'));
         }
 
         // Fetch the filtered students (limiting to 50 for pagination)

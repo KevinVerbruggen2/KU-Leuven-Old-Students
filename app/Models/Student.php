@@ -27,8 +27,8 @@ class Student extends Model
         'Bisdom' => 'string',
         'Datum inschrijving' => 'string',
         'Folio (mss)' => 'string',
-        'Cat. inschrijving' => 'string',
-        'Cat. leeftijd' => 'string',
+        'Cat inschrijving' => 'string',
+        'Cat leeftijd' => 'string',
         'Pedagogie' => 'string',
         'School (humaniora)' => 'string',
         'Studiegebied' => 'string',
@@ -43,16 +43,65 @@ class Student extends Model
 
     public function getModernHerkomstAttribute()
     {
-        return $this->{'Herkomst - modern'};
+        return $this->{'Herkomst - modern'} ?? ''; // Default to empty string if value is null
     }
 
     public function getInschrijvingDateAttribute()
     {
-        return $this->{'Datum inschrijving'};
+        return $this->{'Datum inschrijving'} ?? ''; // Default to empty string if value is null
     }
 
+    // Accessor for Vol. (ed.)
+    public function getVolEdAttribute()
+    {
+        return $this->{'Vol. (ed.)'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Bisdom
+    public function getBisdomAttribute()
+    {
+        return $this->{'Bisdom'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Folio (mss)
+    public function getFolioMssAttribute()
+    {
+        return $this->{'Folio (mss)'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Cat leeftijd
+    public function getCatLeeftijdAttribute()
+    {
+        return $this->{'Cat leeftijd'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Studiegied
+    public function getStudiegebiedAttribute()
+    {
+        return $this->{'Studiegebied'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for School Selectie
+    public function getSchoolSelectieAttribute()
+    {
+        return $this->{'School (humaniora)'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Pedagogie
+    public function getPedagogieAttribute()
+    {
+        return $this->{'Pedagogie'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for Cat inschrijving
     public function getCategoryInschrijvingAttribute()
     {
-        return $this->{'Cat. inschrijving'};
+        return $this->{'Cat inschrijving'} ?? ''; // Default to empty string if value is null
+    }
+
+    // Accessor for UUID
+    public function getUuidAttribute()
+    {
+        return $this->{'UUID'} ?? ''; // Default to empty string if value is null
     }
 }
