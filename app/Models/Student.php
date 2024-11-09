@@ -75,22 +75,10 @@ class Student extends Model
         return $this->{'Cat leeftijd'} ?? ''; // Default to empty string if value is null
     }
 
-    // Accessor for Studiegied
-    public function getStudiegebiedAttribute()
-    {
-        return $this->{'Studiegebied'} ?? ''; // Default to empty string if value is null
-    }
-
     // Accessor for School Selectie
     public function getSchoolSelectieAttribute()
     {
         return $this->{'School (humaniora)'} ?? ''; // Default to empty string if value is null
-    }
-
-    // Accessor for Pedagogie
-    public function getPedagogieAttribute()
-    {
-        return $this->{'Pedagogie'} ?? ''; // Default to empty string if value is null
     }
 
     // Accessor for Cat inschrijving

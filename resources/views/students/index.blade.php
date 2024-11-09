@@ -90,9 +90,10 @@
                 <td data-label="Naam">{{ $student->Voornaam }} {{ $student->Naam }}</td>
                 <td data-label="Herkomst">{{ $student->getModernHerkomstAttribute() }}</td>
                 <td data-label="Inschrijving">{{ $student->getInschrijvingDateAttribute() }}</td>
-                <td data-label="Studiegebied">{{ $student->getStudiegebiedAttribute() }}</td> <!-- Using accessor -->
+{{--                <td data-label="Studiegebied">{{ $student->getStudiegebiedAttribute() }}</td>--}}
+                <td data-label="Studiegebied">{{ $student->Studiegebied }}</td>
                 <td data-label="Cat inschrijving">{{ $student->getCategoryInschrijvingAttribute() }}</td> <!-- Using accessor -->
-                <td data-label="Pedagogie">{{ $student->getPedagogieAttribute() }}</td> <!-- Using accessor -->
+                <td data-label="Pedagogie">{{ $student->Pedagogie }}</td> <!-- Using accessor -->
                 <td data-label="School Selectie">{{ $student->getSchoolSelectieAttribute() }}</td> <!-- Using accessor -->
             </tr>
         @endforeach

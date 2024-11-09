@@ -59,6 +59,8 @@ class StudentController extends Controller
         // Fetch the filtered students (limiting to 50 for pagination)
         $students = $query->limit(50)->get();
 
+        error_log($students);
+
         // Pass the students data to the view
         return view('welcome', compact('students'));
     }
