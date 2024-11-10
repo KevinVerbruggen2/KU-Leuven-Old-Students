@@ -87,7 +87,7 @@
         </thead>
         <tbody>
         @foreach ($students as $student)
-            <!-- Main row with limited columns -->
+
             <tr class="student-row" data-student-id="{{ $student->ID }}">
                 <td>{{ $student->Voornaam }} {{ $student->Naam }}</td>
                 <td>{{ $student->{'Herkomst - modern'} }}</td>

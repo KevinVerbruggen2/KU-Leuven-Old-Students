@@ -9,14 +9,14 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $table = 'studenten'; // Table name
-    protected $primaryKey = 'ID';   // Primary key
+    protected $table = 'studenten';
+    protected $primaryKey = 'ID';
 
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
 
-    // Map MySQL columns with spaces or special characters to Laravel attributes
+    // Map MySQL columns with spaces or special characters to Laravel attribute
     protected $casts = [
         'ID' => 'string',
         'Vol. (ed.)' => 'string',

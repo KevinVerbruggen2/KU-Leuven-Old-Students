@@ -6,14 +6,13 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align to the top to start */
+    align-items: flex-start;
     flex-direction: column;
 }
-
 header {
     background-color: rgba(20, 127, 161, 0.87);
-    width: 100%; /* Ensure the header takes full width */
-    padding: 2em 0; /* Adjust padding to add space around the text */
+    width: 100%;
+    padding: 2em 0;
     box-sizing: border-box;
 }
 
@@ -31,7 +30,7 @@ h1 {
 
 .custom-container {
     width: 100%;
-    max-width: 55em; /* Max width for content */
-    margin: 0.5em auto; /* Center the container with top/bottom margin */
+    max-width: 55em;
+    margin: 0.5em auto;
     box-sizing: border-box;
 }
