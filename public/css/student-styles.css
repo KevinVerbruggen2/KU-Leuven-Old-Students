@@ -1,7 +1,6 @@
-/* Base Page Styling */
 body {
     font-family: 'Figtree', sans-serif;
-    color: #1d3f74; /* Dark blue text color */
+    color: #1d3f74;
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,9 +20,6 @@ body {
     width: 90%;
     max-width: 900px;
 }
-
-
-/* Search Form */
 .search-form {
     display: flex;
     flex-wrap: wrap;
@@ -55,7 +51,6 @@ body {
     background-color: #174074;
 }
 
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -70,20 +65,18 @@ th, td {
     word-wrap: break-word;
 }
 th {
-    background-color: #ebf3fb; /* Light blue for header */
+    background-color: #ebf3fb;
     color: #1d3f74;
     font-weight: 600;
 }
 tr:hover {
-    background-color: #f5f8fb; /* Light gray-blue on hover */
+    background-color: #f5f8fb;
 }
 
-/* Interactive Rows */
 .student-row {
     cursor: pointer;
 }
 
-/* Details Section */
 .student-details {
     padding: 0.5rem;
     background-color: #f9fbfd;
@@ -91,12 +84,52 @@ tr:hover {
     border: 1px solid #e0e7ef;
 }
 
-/* Table Rows on Hover */
 table tbody tr {
     cursor: pointer;
 }
 
-/* Additional Styling for Small Screens */
+.reset-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #f1f5f9;
+    color: #1d3f74;
+    border: 1px solid #d0dae6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 1rem; /* Add spacing between buttons */
+}
+
+.default-value{
+    color: #2f8dac;
+}
+
+
+select {
+    color: #1d3f74; /* Default dark text color */
+    background-color: #f5f8fb; /* Light grey background like placeholders */
+}
+
+/* Style for the select when the default value is selected (light grey text) */
+select option.default-value {
+    color: #A3B1C3; /* Light grey text */
+}
+
+/* When the select has focus, change the color of the placeholder-like default text */
+select:focus {
+    color: #1d3f74; /* Dark text when the user focuses on the select */
+}
+
+/* Optional: Hover effect to ensure the default value still looks light grey */
+select:hover {
+    color: #A3B1C3;
+}
+
+/* Style to ensure the placeholder color stays light grey when not selected */
+select:not(:focus) option:checked {
+    color: #A3B1C3; /* Light grey for default value */
+}
+
 @media (max-width: 768px) {
     .search-form input, .search-form select {
         width: 100%;
