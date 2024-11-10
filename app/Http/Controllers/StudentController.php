@@ -24,9 +24,13 @@ class StudentController extends Controller
             $query->where('Naam', 'like', '%' . $request->input('naam') . '%');
         }
 
-        // Search by Herkomst (Origin)
+        // Search by Herkomst (Origin) or Herkomst - modern
         if ($request->has('herkomst') && $request->input('herkomst') != '') {
-            $query->where('Herkomst - modern', 'like', '%' . $request->input('herkomst') . '%');
+            $herkomst = $request->input('herkomst');
+            $query->where(function ($subQuery) use ($herkomst) {
+                $subQuery->where('Herkomst', 'like', '%' . $herkomst . '%')
+                    ->orWhere('Herkomst - modern', 'like', '%' . $herkomst . '%');
+            });
         }
 
         // Search by Date of Registration (Datum inschrijving)
@@ -44,6 +48,11 @@ class StudentController extends Controller
         if ($request->has('cat_inschrijving') && $request->input('cat_inschrijving') != '') {
             // Use the correct column name 'Cat inschrijving'
             $query->where('Cat inschrijving', '=', $request->input('cat_inschrijving'));
+        }
+
+        // Search by Cat leeftijd (Category of Age)
+        if ($request->has('cat_leeftijd') && $request->input('cat_leeftijd') != '') {
+            $query->where('Cat leeftijd', '=', $request->input('cat_leeftijd'));
         }
 
         // Search by Pedagogie

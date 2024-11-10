@@ -9,41 +9,14 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-    <style>
-        /* Base styles for main page */
-        body {
-            font-family: 'Figtree', sans-serif;
-            background-color: #f3f4f6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        h1 {
-            text-align: center;
-            color: #2d3748;
-            margin: 0.5em 0;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-        .custom-container {
-            width: 96%;
-            max-width: 55em;
-            margin: auto;
-            box-sizing: border-box;
-        }
-    </style>
-    @endif
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+
 </head>
 <body>
+<header>
+    <h1>Zoek hier naar studenten in het Rijksarchief Leuven</h1>
+    <h4>Databank van personen ingeschreven in de matrikels van de Oude Universiteit Leuven, 1426-1797</h4>
+</header>
 <div class="custom-container">
     @include('students.index', ['students' => $students])
 </div>
