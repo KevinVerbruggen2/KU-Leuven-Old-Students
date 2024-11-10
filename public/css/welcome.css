@@ -1,0 +1,37 @@
+body {
+    font-family: 'Figtree', sans-serif;
+    background-color: #e6f0fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top to start */
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(20, 127, 161, 0.87);
+    width: 100%; /* Ensure the header takes full width */
+    padding: 2em 0; /* Adjust padding to add space around the text */
+    box-sizing: border-box;
+}
+
+h1, h4 {
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0.2em 1em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.custom-container {
+    width: 100%;
+    max-width: 55em; /* Max width for content */
+    margin: 0.5em auto; /* Center the container with top/bottom margin */
+    box-sizing: border-box;
+}

@@ -3,10 +3,10 @@
 <head>
     <title>Student Records</title>
     <link rel="stylesheet" href="{{ asset('css/student-styles.css') }}">
+    <script src="{{ asset('js/student-scripts.js') }}"></script>
 </head>
 <body>
 <div class="container">
-    <h1>Zoek hier naar studenten</h1>
 
     <form method="GET" action="{{ route('students.index') }}" class="search-form">
         <input type="text" name="voornaam" placeholder="Voornaam" value="{{ request('voornaam') }}">
@@ -47,6 +47,14 @@
             <option value="nobilis; dives" {{ request('cat_inschrijving') == 'nobilis; dives' ? 'selected' : '' }}>nobilis; dives</option>
         </select>
 
+        <!-- Dropdown for Cat leeftijd -->
+        <select name="cat_leeftijd">
+            <option value="">Cat Leeftijd</option>
+            <option value="maiorennis" {{ request('cat_leeftijd') == 'maiorennis' ? 'selected' : '' }}>maiorennis</option>
+            <option value="minorennis" {{ request('cat_leeftijd') == 'minorennis' ? 'selected' : '' }}>minorennis</option>
+        </select>
+
+
         <!-- Dropdown for Pedagogie -->
         <select name="pedagogie">
             <option value="">Pedagogie</option>
@@ -78,27 +86,64 @@
             <th>Naam</th>
             <th>Herkomst</th>
             <th>Inschrijving</th>
-            <th>Studiegebied</th>
-            <th>Cat inschrijving</th>
-            <th>Pedagogie</th>
-            <th>School Selectie</th>
         </tr>
         </thead>
         <tbody>
         @foreach ($students as $student)
-            <tr>
-                <td data-label="Naam">{{ $student->Voornaam }} {{ $student->Naam }}</td>
-                <td data-label="Herkomst">{{ $student->getModernHerkomstAttribute() }}</td>
-                <td data-label="Inschrijving">{{ $student->getInschrijvingDateAttribute() }}</td>
-{{--                <td data-label="Studiegebied">{{ $student->getStudiegebiedAttribute() }}</td>--}}
-                <td data-label="Studiegebied">{{ $student->Studiegebied }}</td>
-                <td data-label="Cat inschrijving">{{ $student->getCategoryInschrijvingAttribute() }}</td> <!-- Using accessor -->
-                <td data-label="Pedagogie">{{ $student->Pedagogie }}</td> <!-- Using accessor -->
-                <td data-label="School Selectie">{{ $student->getSchoolSelectieAttribute() }}</td> <!-- Using accessor -->
+            <!-- Main row with limited columns -->
+            <tr class="student-row" data-student-id="{{ $student->ID }}">
+                <td>{{ $student->Voornaam }} {{ $student->Naam }}</td>
+                <td>{{ $student->{'Herkomst - modern'} }}</td>
+                <td>{{ $student->{'Datum inschrijving'} }}</td>
             </tr>
+
+            <tr class="student-details-row" id="details-{{ $student->ID }}" style="display: none;">
+                <td colspan="3">
+                    <div class="student-details">
+                        <!-- Conditionally display each field only if it is not empty -->
+                        @if(!empty($student->Studiegebied))
+                            <p><strong>Studiegebied:</strong> {{ $student->Studiegebied }}</p>
+                        @endif
+
+                        @if(!empty($student->{'Cat inschrijving'}))
+                            <p><strong>Cat inschrijving:</strong> {{ $student->{'Cat inschrijving'} }}</p>
+                        @endif
+
+                        @if(!empty($student->Pedagogie))
+                            <p><strong>Pedagogie:</strong> {{ $student->Pedagogie }}</p>
+                        @endif
+
+                        @if(!empty($student->{'School (humaniora)'}))
+                            <p><strong>School Selectie:</strong> {{ $student->{'School (humaniora)'} }}</p>
+                        @endif
+
+                        @if(!empty($student->Herkomst))
+                            <p><strong>Herkomst (oud):</strong> {{ $student->Herkomst }}</p>
+                        @endif
+
+                        @if(!empty($student->{'Cat leeftijd'}))
+                            <p><strong>Cat Leeftijd:</strong> {{ $student->{'Cat leeftijd'} }}</p>
+                        @endif
+
+                        @if(!empty($student->{'Folio (mss)'}))
+                            <p><strong>Folio (mss):</strong> {{ $student->{'Folio (mss)'} }}</p>
+                        @endif
+
+                        @if(!empty($student->Bisdom))
+                            <p><strong>Bisdom:</strong> {{ $student->Bisdom }}</p>
+                        @endif
+
+                        @if(!empty($student->{'Vol. (ed.)'}))
+                            <p><strong>Vol. (ed.):</strong> {{ $student->{'Vol. (ed.)'} }}</p>
+                        @endif
+
+
+                    </div>
+                </td>
+            </tr>
+
         @endforeach
         </tbody>
-
     </table>
 </div>
 </body>
