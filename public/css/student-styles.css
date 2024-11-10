@@ -2,24 +2,31 @@ body {
     font-family: 'Figtree', sans-serif;
     color: #1d3f74;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 0 1em;
+
 }
 table {
-    width: 100%;
+    /*width: 100%;*/
+    max-width: 95%;
     border-collapse: collapse;
-    margin-top: 1.5em;
+    margin-top: 3em;
     font-size: 1rem;
     color: #1d3f74;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    margin-left: auto;
+    margin-right: auto;
 }
 table tbody tr {
     cursor: pointer;
+    max-width: 100%;
 }
 th, td {
-    padding: 12px;
+    padding: 1rem 0.2rem;
     text-align: left;
     border-bottom: 1px solid #2f8dac;
     word-wrap: break-word;
@@ -32,6 +39,12 @@ th {
 tr:hover {
     background-color: #f5f8fb;
 }
+form {
+    padding-top: 1.2em;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .container {
@@ -41,9 +54,8 @@ tr:hover {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-    padding: 1.5rem;
-    width: 90%;
-    max-width: 900px;
+    width: 70em;
+    max-width: 100%;
 }
 .search-form {
     display: flex;
