@@ -52,9 +52,7 @@ class StudentController extends Controller
             $query->where('School (humaniora)', '=', $request->input('school_selectie'));
         }
 
-        $students = $query->limit(50)->get();
-
-        error_log($students);
+        $students = $query->paginate(50);
 
         return view('welcome', compact('students'));
     }

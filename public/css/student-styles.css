@@ -119,6 +119,44 @@ form {
     margin: 1em;
 }
 
+/*Pagination CSS*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+.pagination a {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;  /* Smaller font size for arrows */
+    background-color: #f0f4f8;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.pagination a:hover {
+    background-color: #ebf3fb;
+}
+.pagination a.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.pagination .page-info {
+    font-size: 1rem;
+    color: #333;
+    padding: 0.5rem;
+}
+.pagination a.active {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+
 @media (max-width: 768px) {
     .search-form input, .search-form select {
         width: 100%;

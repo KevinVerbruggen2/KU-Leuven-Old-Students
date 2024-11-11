@@ -79,67 +79,98 @@
     @if ($students->isEmpty())
         <h4 colspan="3" class="no-results">Geen studenten gevonden</h4>
     @else
-    <table>
-        <thead>
-            <tr>
-                <th>Naam</th>
-                <th>Herkomst</th>
-                <th>Inschrijving</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($students as $student)
-                <tr class="student-row" data-student-id="{{ $student->ID }}">
-                    <td>{{ $student->Voornaam }} {{ $student->Naam }}</td>
-                    <td>{{ $student->{'Herkomst - modern'} }}</td>
-                    <td>{{ $student->{'Datum inschrijving'} }}</td>
+        <div class="pagination">
+            @if ($students->onFirstPage())
+                <a href="#" class="prev disabled" aria-label="Previous">&laquo; Previous</a>
+            @else
+                <a href="{{ $students->previousPageUrl() }}" class="prev" aria-label="Previous">&laquo; Previous</a>
+            @endif
+
+            <span class="page-info" id="pageInfo">Page {{ $students->currentPage() }} of {{ $students->lastPage() }}</span>
+
+            @if ($students->hasMorePages())
+                <a href="{{ $students->nextPageUrl() }}" class="next" aria-label="Next">Next &raquo;</a>
+            @else
+                <a href="#" class="next disabled" aria-label="Next">Next &raquo;</a>
+            @endif
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Herkomst</th>
+                    <th>Inschrijving</th>
                 </tr>
-                <tr class="student-details-row" id="details-{{ $student->ID }}" style="display: none;">
-                    <td colspan="3">
-                        <div class="student-details">
+            </thead>
+            <tbody>
+                @foreach ($students as $student)
+                    <tr class="student-row" data-student-id="{{ $student->ID }}">
+                        <td>{{ $student->Voornaam }} {{ $student->Naam }}</td>
+                        <td>{{ $student->{'Herkomst - modern'} }}</td>
+                        <td>{{ $student->{'Datum inschrijving'} }}</td>
+                    </tr>
+                    <tr class="student-details-row" id="details-{{ $student->ID }}" style="display: none;">
+                        <td colspan="3">
+                            <div class="student-details">
 
-                            @if(!empty($student->Studiegebied))
-                                <p><strong>Studiegebied:</strong> {{ $student->Studiegebied }}</p>
-                            @endif
+                                @if(!empty($student->Studiegebied))
+                                    <p><strong>Studiegebied:</strong> {{ $student->Studiegebied }}</p>
+                                @endif
 
-                            @if(!empty($student->{'Cat inschrijving'}))
-                                <p><strong>Cat inschrijving:</strong> {{ $student->{'Cat inschrijving'} }}</p>
-                            @endif
+                                @if(!empty($student->{'Cat inschrijving'}))
+                                    <p><strong>Cat inschrijving:</strong> {{ $student->{'Cat inschrijving'} }}</p>
+                                @endif
 
-                            @if(!empty($student->Pedagogie))
-                                <p><strong>Pedagogie:</strong> {{ $student->Pedagogie }}</p>
-                            @endif
+                                @if(!empty($student->Pedagogie))
+                                    <p><strong>Pedagogie:</strong> {{ $student->Pedagogie }}</p>
+                                @endif
 
-                            @if(!empty($student->{'School (humaniora)'}))
-                                <p><strong>School Selectie:</strong> {{ $student->{'School (humaniora)'} }}</p>
-                            @endif
+                                @if(!empty($student->{'School (humaniora)'}))
+                                    <p><strong>School Selectie:</strong> {{ $student->{'School (humaniora)'} }}</p>
+                                @endif
 
-                            @if(!empty($student->Herkomst))
-                                <p><strong>Herkomst (oud):</strong> {{ $student->Herkomst }}</p>
-                            @endif
+                                @if(!empty($student->Herkomst))
+                                    <p><strong>Herkomst (oud):</strong> {{ $student->Herkomst }}</p>
+                                @endif
 
-                            @if(!empty($student->{'Cat leeftijd'}))
-                                <p><strong>Cat Leeftijd:</strong> {{ $student->{'Cat leeftijd'} }}</p>
-                            @endif
+                                @if(!empty($student->{'Cat leeftijd'}))
+                                    <p><strong>Cat Leeftijd:</strong> {{ $student->{'Cat leeftijd'} }}</p>
+                                @endif
 
-                            @if(!empty($student->{'Folio (mss)'}))
-                                <p><strong>Folio (mss):</strong> {{ $student->{'Folio (mss)'} }}</p>
-                            @endif
+                                @if(!empty($student->{'Folio (mss)'}))
+                                    <p><strong>Folio (mss):</strong> {{ $student->{'Folio (mss)'} }}</p>
+                                @endif
 
-                            @if(!empty($student->Bisdom))
-                                <p><strong>Bisdom:</strong> {{ $student->Bisdom }}</p>
-                            @endif
+                                @if(!empty($student->Bisdom))
+                                    <p><strong>Bisdom:</strong> {{ $student->Bisdom }}</p>
+                                @endif
 
-                            @if(!empty($student->{'Vol. (ed.)'}))
-                                <p><strong>Vol. (ed.):</strong> {{ $student->{'Vol. (ed.)'} }}</p>
-                            @endif
+                                @if(!empty($student->{'Vol. (ed.)'}))
+                                    <p><strong>Vol. (ed.):</strong> {{ $student->{'Vol. (ed.)'} }}</p>
+                                @endif
 
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            @if ($students->onFirstPage())
+                <a href="#" class="prev disabled" aria-label="Previous">&laquo; Previous</a>
+            @else
+                <a href="{{ $students->previousPageUrl() }}" class="prev" aria-label="Previous">&laquo; Previous</a>
+            @endif
+
+            <span class="page-info" id="pageInfo">Page {{ $students->currentPage() }} of {{ $students->lastPage() }}</span>
+
+            @if ($students->hasMorePages())
+                <a href="{{ $students->nextPageUrl() }}" class="next" aria-label="Next">Next &raquo;</a>
+            @else
+                <a href="#" class="next disabled" aria-label="Next">Next &raquo;</a>
+            @endif
+        </div>
     @endif
 
 </div>
